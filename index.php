@@ -69,3 +69,22 @@ if ($c % 2 == 0) {
     $nechet++;
 }
 echo "Количество четных: $chet </br> Количество нечетных: $nechet  </br>";
+
+
+//даны три числа - вывести среднее
+$mas = [2,4,-3];
+$min = $mas[0];
+$max = $mas[0];
+for ($i=1;$i<3; $i++){
+    if($mas[$i] > $max){
+        $max = $mas[$i];
+    }
+    elseif($mas[$i] < $min){
+        $min = $mas[$i];
+    }
+}
+for($i=0;$i<3; $i++){
+    if ($mas[$i] != $max  and $mas[$i] != $min){
+        echo "Среднее число $mas[$i]";
+    }
+}
