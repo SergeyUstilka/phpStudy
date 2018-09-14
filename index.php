@@ -86,5 +86,6 @@ for ($i=1;$i<3; $i++){
 for($i=0;$i<3; $i++){
     if ($mas[$i] != $max  and $mas[$i] != $min){
         echo "Среднее число $mas[$i]";
+        break;
     }
 }
