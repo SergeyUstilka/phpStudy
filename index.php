@@ -1,18 +1,9 @@
 
 <?php
-/**
- * Created by PhpStorm.
- * User: NoteBook
- * Date: 06.09.2018
- * Time: 20:02
- */
-
-
-
 echo "<pre>";
-$a = 10;
-$b = 10;
-$l=10;
+$a = 15;
+$b = 15;
+$l=15;
 echo "<style>td{border: 1px solid #000; padding: 10px 15px; font-size: 14px;} .main-diag{background:green; color:#fff; }
 .sub-diag{background: red; color:#fff;}</style>";
 echo "<table style='font-size: 14px;  margin: 20px auto;'>";
@@ -32,5 +23,6 @@ for ($i=1; $i<=$a; $i++){
 }
 echo "<table>";
 echo "</pre>";
+
 
 
