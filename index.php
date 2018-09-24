@@ -47,10 +47,9 @@
 </div>
 <p>
 <?php
-if ($_POST['text_length'] == ''){
-    echo ' <h2>Zapolninte vse polia</h2>';
-}
-else{
+if (!intval($_POST['text_length'])){
+    echo '<h2>Igor vvedi chislo hotiaby 40 v pervoe pole</h2>';
+}else{
     $str = $_POST['text'];
     $text_length = intval($_POST['text_length']);
     $substr = substr($str, 0, $text_length);// Poluchili obrezannuu no neobrabotannuu stroku
@@ -59,6 +58,7 @@ else{
     echo '</br></br>';
     $a = strlen(strrchr($substr, ' '));
     echo "<h3>Poluchaem:</h3> </br>".$lastsubst = substr($substr,  0 , strlen($substr) -  $a)." ...";
+
 }
 ?>
 </p>
