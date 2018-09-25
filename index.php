@@ -47,18 +47,21 @@
 </div>
 <p>
 <?php
-if (!intval($_POST['text_length'])){
-    echo '<h2>Igor vvedi chislo hotiaby 40 v pervoe pole</h2>';
-}else{
+$reg_exp = "/^[0-9]{1,3}$/";
+$match = [];
+ ;
+if (preg_match($reg_exp, $_POST['text_length'],$match)){
+    echo $match[0];
     $str = $_POST['text'];
-    $text_length = intval($_POST['text_length']);
+    $text_length = $match[0];
     $substr = substr($str, 0, $text_length);// Poluchili obrezannuu no neobrabotannuu stroku
 
     echo "<h3>Na <b>$text_length</b> simvolov Obrezaem tekst:</h3> </br> '".$str."'";
     echo '</br></br>';
     $a = strlen(strrchr($substr, ' '));
     echo "<h3>Poluchaem:</h3> </br>".$lastsubst = substr($substr,  0 , strlen($substr) -  $a)." ...";
-
+}else{
+    echo '<h2>Введите число от 10 до 999 в первое поле</h2>';
 }
 ?>
 </p>
