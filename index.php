@@ -61,6 +61,7 @@ if (preg_match($reg_exp, $_POST['text_length'],$match)){
     echo "<h3>Получаем:</h3> </br>".$lastsubst = substr($substr,  0 , strlen($substr) -  $a)." ...";
 }else{
     echo '<h2>Введите число от 1 до 999 в первое поле</h2>';
+    echo "Вы ввели <b style='color:red;'>'".$_POST['text_length']."</b>'";
 }
 ?>
 </p>
