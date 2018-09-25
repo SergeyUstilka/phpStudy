@@ -51,15 +51,14 @@ $reg_exp = "/^[0-9]{1,3}$/";
 $match = [];
  ;
 if (preg_match($reg_exp, $_POST['text_length'],$match)){
-    echo $match[0];
     $str = $_POST['text'];
     $text_length = $match[0];
     $substr = substr($str, 0, $text_length);// Poluchili obrezannuu no neobrabotannuu stroku
 
-    echo "<h3>Na <b>$text_length</b> simvolov Obrezaem tekst:</h3> </br> '".$str."'";
+    echo "<h3>На <b>$text_length</b> символов обрезаем текст:</h3> </br> '".$str."'";
     echo '</br></br>';
     $a = strlen(strrchr($substr, ' '));
-    echo "<h3>Poluchaem:</h3> </br>".$lastsubst = substr($substr,  0 , strlen($substr) -  $a)." ...";
+    echo "<h3>Получаем:</h3> </br>".$lastsubst = substr($substr,  0 , strlen($substr) -  $a)." ...";
 }else{
     echo '<h2>Введите число от 10 до 999 в первое поле</h2>';
 }
