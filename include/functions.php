@@ -50,5 +50,5 @@ function deletePage($connection, $pageId){
 function editPage($connection,$new_page_data){
     $sql = "UPDATE `pages` SET `name` = '".$new_page_data['pageName']."', `content` = '".$new_page_data['pageContent']."' WHERE `pages`.`id` = ".$new_page_data['updateId'].";";
     $res = mysqli_query($connection, $sql);
-    return '<h1 class="pb-2 display-4">Вы добавили новую статью </h1><div class="card"><h2 class="card-header">'.$new_page_data['pageName'].'</h2><div class="card-body"><p class="typo-articles">'.$new_page_data['pageContent'].'</p><a class="btn btn-primary btn-sm" href="?action=pages_list" style="margin: 30px 0">Вернуться к списку статей</a></div></div>';
+    return '<h1 class="pb-2 display-4">Статья успешно изменена </h1><div class="card"><h2 class="card-header">'.$new_page_data['pageName'].'</h2><div class="card-body"><p class="typo-articles">'.$new_page_data['pageContent'].'</p><a class="btn btn-primary btn-sm" href="?action=pages_list" style="margin: 30px 0">Вернуться к списку статей</a></div></div>';
 }
