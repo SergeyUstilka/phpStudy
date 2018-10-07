@@ -6,6 +6,7 @@
  * Time: 20:35
  */
 ?>
+
 <div class="content pb-0">
     <h1 class="pb-2 display-4">Добавить новую статью</h1>
     <div class="row">
@@ -23,7 +24,17 @@
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Содержание</label></div>
                             <div class="col-12 col-md-9"><textarea name="pageContent" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
                         </div>
-                        <input type="hidden" name="add">
+                        <div class="row form-group">
+                            <div class="col col-md-12">
+                                <div class="form-check">
+                                    <div class="checkbox">
+                                        <label for="checkbox1" class="form-check-label ">
+                                            <input type="checkbox" id="checkbox1" name="active" value="1" class="form-check-input">Активна
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-actions form-group">
                             <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
                         </div>
@@ -34,3 +45,6 @@
     </div>
 </div>
 
+<script>
+    CKEDITOR.replace( 'pageContent' );
+</script>

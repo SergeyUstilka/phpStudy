@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="assets/css/charts/chartist.min.css" rel="stylesheet">
     <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 
 
     <style>

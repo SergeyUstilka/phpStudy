@@ -6,10 +6,7 @@
  * Time: 20:55
  */
 
-$pages = getList($connection);
-if ($_GET['action_type']=='delete'){
-    deletePage($connection, $_GET['delete_page_id']);
-}
+$pages = getListInAdmin($connection);
 ?>
 <div class="content pb-0">
     <h1 class="pb-2 display-4">Статьи</h1></br>
@@ -21,6 +18,7 @@ if ($_GET['action_type']=='delete'){
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Name</th>
+                <th scope="col">Active</th>
                 <th scope="col">Action</th>
             </tr>
             </thead>
@@ -29,6 +27,7 @@ if ($_GET['action_type']=='delete'){
             <tr>
                 <td><?=$page['id']?></td>
                 <td><?=$page['name']?></td>
+                <td><?=$page['active']?></td>
                 <td><a href="?action=edit_page&id=<?=$page['id']?>" class="btn btn-primary">Edit</a><a href="<?="?action=page_engine&action_type=delete&delete_page_id=".$page['id']?>" class="btn btn-danger" style="margin-left: 15px">Delete</a></td>
             </tr>
             <?php endforeach;?>

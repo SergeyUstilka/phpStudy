@@ -6,7 +6,7 @@ include_once (__DIR__."/config/config.php");
 //echo '<pre>';
 //var_dump(parse_url($_SERVER['REQUEST_URI']));
 //echo '</pre>';
-if ($_SERVER['REQUEST_URI'] == '/'){
+if ($_SERVER['REQUEST_URI'] == '/' || !empty($_GET['pag'])){
     $pagetype ='main';
 }elseif(parse_url($_SERVER['REQUEST_URI'])['path'] == '/single'){
     $pagetype = 'single';

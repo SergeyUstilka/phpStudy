@@ -5,30 +5,38 @@
  * Date: 29.09.2018
  * Time: 13:38
  */
-$pages = getList($connection);
-?>
 
+if($_GET['pag']){
+    $pages = getList($connection,3,$_GET['pag'] );
+}else{
+    $pages = getList($connection);
+}
+getCountPages($connection);
+
+
+  ?>
 <div class="content">
     <div class="container">
         <div class="content-grids">
             <div class="col-md-8 content-main">
                 <div class="content-grid">
                     <?php
-
                         foreach ($pages as $page){
-                            ?>
+                            if($page['active']):
+                                ?>
 
-                    <div class="content-grid-info">
-                        <img src="images/post1.jpg" alt=""/>
-                        <div class="post-info">
-                            <h4><a href="single?id=<?=$page['id']?>"><?=$page['name']?></a>  July 30, 2014 / 27 Comments</h4>
-                            <p><?=cutText($page['content'], 130)?></p>
-                            <a href="single?id=<?=$page['id']?>"><span></span>READ MORE</a>
-                        </div>
-                    </div>
-                            <?php
-                        }
-                    ?>
+                                <div class="content-grid-info">
+                                    <img src="images/post1.jpg" alt=""/>
+                                    <div class="post-info">
+                                        <h4><a href="single?id=<?= $page['id'] ?>"><?= $page['name'] ?></a> July 30,
+                                            2014 / 27 Comments</h4>
+                                        <p><?= cutText($page['content'], 130) ?></p>
+                                        <a href="single?id=<?= $page['id'] ?>"><span></span>READ MORE</a>
+                                    </div>
+                                </div>
+                                <?php
+                            endif;}
+                                ?>
                 </div>
             </div>
             <div class="col-md-4 content-right">
@@ -73,4 +81,21 @@ $pages = getList($connection);
             <div class="clearfix"></div>
         </div>
     </div>
+    <nav aria-label="Page navigation example" style="text-align: center;">
+        <ul class="pagination">
+            <?php
+            if(getCountPages($connection) > 3) {
+                $pagination = ceil(getCountPages($connection) / 3); //3
+                for ($i = 1; $i <= $pagination; $i++) {
+                    echo "<li class='page-item'><a class='page-link' href='?pag=" . $i . "'>$i</a></li>";
+                }
+            }
+            ?>
+        </ul>
+    </nav>
+
 </div>
+
+
+
+
