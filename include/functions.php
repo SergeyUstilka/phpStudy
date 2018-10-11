@@ -67,8 +67,8 @@ function editData($connection, $pageInfo, $tableName){
 }
 
 //   Pagination functions
-function getCountPages($connection){
-    $sql = "SELECT count(*) from pages where active = 1";
+function getCountPages($connection, $tableName){
+    $sql = "SELECT count(*) from $tableName where active = 1";
     $res= mysqli_query($connection, $sql);
     return  (mysqli_fetch_row($res)[0]);
 

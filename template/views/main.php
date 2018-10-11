@@ -11,7 +11,7 @@ if($_GET['pag']){
 }else{
     $pages = getList($connection);
 }
-getCountPages($connection);
+$countPages = getCountPages($connection, 'pages');
 
 
   ?>
@@ -31,7 +31,7 @@ getCountPages($connection);
                                         <h4><a href="single?id=<?= $page['id'] ?>"><?= $page['name'] ?></a> July 30,
                                             2014 / 27 Comments</h4>
                                         <p><?= cutText($page['content'], 130) ?></p>
-                                        <a href="single?id=<?= $page['id'] ?>"><span></span>READ MORE</a>
+                                        <a href="single/?id=<?= $page['id'] ?>"><span></span>READ MORE</a>
                                     </div>
                                 </div>
                                 <?php
@@ -84,8 +84,8 @@ getCountPages($connection);
     <nav aria-label="Page navigation example" style="text-align: center;">
         <ul class="pagination">
             <?php
-            if(getCountPages($connection) > 3) {
-                $pagination = ceil(getCountPages($connection) / 3); //3
+            if($countPages > 3) {
+                $pagination = ceil($countPages / 3); //3
                 for ($i = 1; $i <= $pagination; $i++) {
                     echo "<li class='page-item'><a class='page-link' href='?pag=" . $i . "'>$i</a></li>";
                 }

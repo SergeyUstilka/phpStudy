@@ -6,7 +6,7 @@
  * Time: 13:39
  */
 
-$page =  getPage($connection, $_GET['id']);
+$page =  getData($connection, $_GET['id'], 'pages');
 
 
 
