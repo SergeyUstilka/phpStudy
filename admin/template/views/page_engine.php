@@ -7,6 +7,7 @@
  */
 
 $new_page_data = $_POST;
+$tableName = 'pages';
 ?>
 
 <div class="content pb-0">
@@ -14,13 +15,13 @@ $new_page_data = $_POST;
         <?php
         switch($_GET['action_type']){
             case 'add':
-                echo addNewPage($connection);
+                echo addNewData($connection, $new_page_data, $tableName);
                 break;
             case  'delete':
-                echo deletePage($connection, $_GET['delete_page_id']);
+                echo deleteData($connection,$tableName, $_GET['delete_page_id']);
                 break;
             case 'update':
-                echo editPage($connection);
+                echo editData($connection, $new_page_data, $tableName);
                 break;
             default:   echo 'Вы тут по ошибке';
                 break;

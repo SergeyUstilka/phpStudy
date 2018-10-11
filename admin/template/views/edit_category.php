@@ -6,10 +6,10 @@
  * Time: 19:35
  */
 
-$page = getCategory($connection,$_GET['id']);
+$page = getData($connection,$_GET['id'], 'category');
 ?>
 <div class="content pb-0">
-    <h1 class="pb-2 display-4">Редактирование статьи</h1>
+    <h1 class="pb-2 display-4">Редактирование категории</h1>
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -24,6 +24,17 @@ $page = getCategory($connection,$_GET['id']);
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Содержание</label></div>
                             <div class="col-12 col-md-9"><textarea name="pageContent" id="textarea-input" rows="9" placeholder="Content..." class="form-control"><?=$page['content']?></textarea></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-12">
+                                <div class="form-check">
+                                    <div class="checkbox">
+                                        <label for="checkbox1" class="form-check-label ">
+                                            <input type="checkbox" id="checkbox1" name="active" value="1" <?php if($page['active'] == '1'){echo 'checked';}?> " class="form-check-input">Активна
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <input type="text" name="updateId" value="<?=$_GET['id']?>" style="display: none">
                         <div class="form-actions form-group">

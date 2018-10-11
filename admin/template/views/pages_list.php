@@ -6,7 +6,7 @@
  * Time: 20:55
  */
 
-$pages = getListInAdmin($connection);
+$pages = getListInAdmin($connection, 'pages');
 ?>
 <div class="content pb-0">
     <h1 class="pb-2 display-4">Статьи</h1></br>

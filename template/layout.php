@@ -1,4 +1,6 @@
+<?php
 
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -52,6 +54,14 @@
                 <li class="active"><a href="index.php">HOME</a></li>
                 <li><a href="about.html">ABOUT</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
+                <?php if(!$_SESSION['is_auth']):?>
+                    <li><a href="/admin/">LOGING</a></li>
+                <?php else:?>
+                    <li><a href="/admin/?action=logout">LOGOUT</a></li>
+                <?php endif;?>
+                <?php if($_SESSION['is_admin']):?>
+                <li><a href="/admin">Admin Panel</a></li>
+                <?php endif; ?>
                 <div class="clearfix"> </div>
             </ul>
         </div>
@@ -63,6 +73,10 @@
             });
         </script>
         <!---//End-top-nav---->
+        <?php  if($_SESSION['is_auth']):?>
+        <div id="helo-block">Привет, <b style="color:green"><?=$_SESSION['userName']?></b> твой email: <b style="color:green"> <?=$_SESSION['userMail']?></b>
+        </div>
+        <?php endif;?>
     </div>
 </div>
 <!--/header-->

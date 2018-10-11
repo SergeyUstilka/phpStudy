@@ -15,9 +15,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ela Admin - HTML5 Admin Template</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin panel</title>
 
     <link rel="apple-touch-icon" href="images/favicon.png">
     <link rel="shortcut icon" href="images/favicon.png">
@@ -84,6 +82,8 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                <li>Привет, <b style="color:green"><?=$_SESSION['userName']?></b></li>
+                <li>Я знаю что у тебя email:<b style="color:green"> <?=$_SESSION['userMail']?></b></li>
                 <li class="active">
                     <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
@@ -132,9 +132,16 @@
 <!--                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>-->
 <!--                </li>            -->
                 <li>
-                    <a href="?action=category_list"> <i class="menu-icon ti-email"></i>Категории </a>
-                </li>                <li>
-                    <a href="?action=pages_list"> <i class="menu-icon ti-email"></i>Статьи </a>
+                    <a href="?action=users_list"> <i class="menu-icon ti-user"></i>Пользователи </a>
+                </li>
+                <li>
+                    <a href="?action=category_list"> <i class="menu-icon ti-archive"></i>Категории </a>
+                </li>
+                <li>
+                    <a href="?action=pages_list"> <i class="menu-icon ti-book"></i>Статьи </a>
+                </li>
+                <li>
+                    <a href="/admin/?action=logout"> <i class="menu-icon ti-close"></i>Выход </a>
                 </li>
 <!--                <li class="menu-item-has-children dropdown">-->
 <!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Charts</a>-->

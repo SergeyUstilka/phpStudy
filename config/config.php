@@ -5,6 +5,7 @@
  * Date: 25.09.2018
  * Time: 20:43
  */
+session_start();
 
 define('DB_HOST','localhost');
 define('DB_NAME','test');

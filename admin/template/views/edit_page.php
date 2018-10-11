@@ -6,7 +6,7 @@
  * Time: 19:35
  */
 
-$page = getPage($connection,$_GET['id']);
+$page = getData($connection,$_GET['id'], 'pages');
 ?>
 <div class="content pb-0">
     <h1 class="pb-2 display-4">Редактирование статьи</h1>

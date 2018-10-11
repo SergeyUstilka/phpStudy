@@ -24,6 +24,17 @@
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Описание</label></div>
                             <div class="col-12 col-md-9"><textarea name="pageContent" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
                         </div>
+                        <div class="row form-group">
+                            <div class="col col-md-12">
+                                <div class="form-check">
+                                    <div class="checkbox">
+                                        <label for="checkbox1" class="form-check-label ">
+                                            <input type="checkbox" id="checkbox1" name="active" value="1" class="form-check-input">Активна
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-actions form-group">
                             <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
                         </div>
