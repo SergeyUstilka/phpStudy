@@ -6,7 +6,7 @@
  * Time: 13:39
  */
 
-//$page =  getData($connection, $_GET['id'], 'pages');
+$page =  getData($connection, $_GET['id'], 'pages');
 
 
 
@@ -17,9 +17,8 @@
         <div class="col-md-8 single-main">
             <div class="single-grid">
                 <img src="/images/post1.jpg" alt=""/>
-                <h1>simple post</h1>
-<!--                <h1>--><?//=$page['name']?><!--</h1>-->
-<!--                <p>--><?//=$page['content']?><!--</p>-->
+                <h1><?=$page['name']?></h1>
+                <p><?=$page['content']?></p>
             </div>
             <ul class="comment-list">
                 <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">admin</a></h5>
