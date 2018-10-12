@@ -28,10 +28,10 @@ $countPages = getCountPages($connection, 'pages');
                                 <div class="content-grid-info">
                                     <img src="images/post1.jpg" alt=""/>
                                     <div class="post-info">
-                                        <h4><a href="/single/"><?= $page['name'] ?></a> July 30,
+                                        <h4><a href="/blog/"><?= $page['name'] ?></a> July 30,
                                             2014 / 27 Comments</h4>
                                         <p><?= cutText($page['content'], 130) ?></p>
-                                        <a href="single/?id=<?= $page['id'] ?>"><span></span>READ MORE</a>
+<!--                                        <a href="single/?id=--><?//= $page['id'] ?><!--"><span></span>READ MORE</a>-->
                                     </div>
                                 </div>
                                 <?php

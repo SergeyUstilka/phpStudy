@@ -21,8 +21,8 @@ if($_SERVER['REQUEST_URI'] == '/'){
     $section = explode('/',parse_url($_SERVER['REQUEST_URI'])[path])[1];
 
    switch ($section){
-       case 'single':
-            $pagetype= 'single';
+       case 'blog':
+            $pagetype= 'blog';
                 break;
        default:
            $pagetype= '404';
