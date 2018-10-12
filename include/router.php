@@ -18,6 +18,15 @@
 if($_SERVER['REQUEST_URI'] == '/'){
     $pagetype='main';
 }else{
-    $pagetype = explode('/',parse_url($_SERVER['REQUEST_URI'])[path])[1];
-    echo $pagetype;
+    $section = explode('/',parse_url($_SERVER['REQUEST_URI'])[path])[1];
+
+   switch ($section){
+       case 'single':
+            $pagetype= 'single';
+                break;
+       default:
+           $pagetype= '404';
+                break;
+
+   }
 }
