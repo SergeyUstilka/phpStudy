@@ -11,12 +11,8 @@ Options +FollowSymLinks
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^(.*)$ index.php [L]
+RewriteRule .* index.php [L]
 
-
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(php|html|htm)\ HTTP/
-
-RewriteRule ^(.*)index\.(php|html|htm)$ $1 [R=301,L]
 
 
 
