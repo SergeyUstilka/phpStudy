@@ -86,3 +86,22 @@ function login($connection, $mail){
     $res = mysqli_query($connection, $sql);
     return  mysqli_fetch_assoc($res);
 }
+
+
+// Functions for work with users
+
+function addUser($connection, $addData){
+    $sql = "INSERT INTO `users`(`name`, `email`, `pass`, `biography`, `user_type`) VALUES ('{$addData['name']}', '{$addData['email']}', '".password_hash($addData['pass'],1)."',  '{$addData['biography']}',  '{$addData['user_type']}');";
+    $res = mysqli_query($connection, $sql);
+    return '<h1 class="pb-2 display-4">Вы добавили нового пользователя </h1><div class="card"><h2 class="card-header">'.$addData['name'].'</h2><div class="card-body"><p class="typo-articles"> Email:'.$addData['email'].'</p><a class="btn btn-primary btn-sm" href="?action=users_list" style="margin: 30px 0">Вернуться к списку пользователей</a></div></div>';
+}
+
+function editUser($connection, $addData){
+    $sql = "UPDATE users SET `name` = '".$addData['name']."', `email` = '".$addData['email']."', `pass` = '".password_hash($addData['pass'],1)."', `biography` = '".$addData['biography']."', `user_type` = '".$addData['user_type']."' WHERE `id` = ".$addData['updateId'].";";
+    $res = mysqli_query($connection, $sql);
+    if($res){
+
+        return '<h1 class="pb-2 display-4">Информация о пользователе успешно изменена </h1><a class="btn btn-primary btn-sm" href="?action=users_list">Вернуться к списку пользователей</a></div></div>';
+    }
+
+}

@@ -22,7 +22,9 @@ if ($_SESSION['is_auth'] && $_SESSION['is_admin'] == 1){
     include  "template/layout.php";
 }
 else{
+    if ($_GET['action']== 'registration'){
 
+    }
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $user = login($connection, $_POST['email']);
         if($user){
