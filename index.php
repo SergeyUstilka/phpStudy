@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_URI'] == '/' || !empty($_GET['pag'])){
 }else{
     $pagetype= $_SERVER['REQUEST_URI'];
 }
+
+print_r($pagetype);
 include_once (__DIR__."/include/functions.php");
 include_once (__DIR__."/template/layout.php");
 ?>
