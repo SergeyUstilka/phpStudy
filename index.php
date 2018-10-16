@@ -1,7 +1,7 @@
 <?php
 
 include_once (__DIR__."/config/config.php");
-
+print_r($_SERVER['REQUEST_URI']);
 if ($_SERVER['REQUEST_URI'] == '/' || !empty($_GET['pag'])){
     $pagetype ='main';
 }elseif(parse_url($_SERVER['REQUEST_URI'])['path'] == '/single'){
