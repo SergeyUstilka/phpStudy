@@ -91,8 +91,15 @@ function login($connection, $mail){
 // Functions for work with users
 
 function addUser($connection, $addData){
-    $sql = "INSERT INTO `users`(`name`, `email`, `pass`, `biography`, `user_type`) VALUES ('{$addData['name']}', '{$addData['email']}', '".password_hash($addData['pass'],1)."',  '{$addData['biography']}',  '{$addData['user_type']}');";
-    $res = mysqli_query($connection, $sql);
+    $sql = "INSERT INTO `users`(`name`, `email`, `pass`, `biography`, `user_type`) VALUES (?,?,?,?,?);";
+//    $sql = "INSERT INTO `users`(`name`, `email`, `pass`, `biography`, `user_type`) VALUES ('{$addData['name']}', '{$addData['email']}', '".password_hash($addData['pass'],1)."',  '{$addData['biography']}',  '{$addData['user_type']}');";
+    if(!$stmt = mysqli_prepare($connection,$sql)){
+        return false;
+    }
+    mysqli_stmt_bind_param($stmt, "ssssi", $addData['name'],$addData['email'], password_hash($addData['pass'], 1),$addData['biography'], $addData['user_type']);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+//    $res = mysqli_query($connection, $sql);
     return '<h1 class="pb-2 display-4">Вы добавили нового пользователя </h1><div class="card"><h2 class="card-header">'.$addData['name'].'</h2><div class="card-body"><p class="typo-articles"> Email:'.$addData['email'].'</p><a class="btn btn-primary btn-sm" href="?action=users_list" style="margin: 30px 0">Вернуться к списку пользователей</a></div></div>';
 }
 
