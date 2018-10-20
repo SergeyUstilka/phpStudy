@@ -6,7 +6,7 @@
  * Time: 13:38
  */
 
-if($_GET['pag']){
+if(isset($_GET['pag'])){
     $pages = getList($connection,3,$_GET['pag'] );
 }else{
     $pages = getList($connection);
