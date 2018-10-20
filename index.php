@@ -65,29 +65,29 @@ for ($i = 0; $i < count($arr); $i++) {
             }
 
         }else{
-            $c = str_split(substr($b, 0, floor($l / 2)));
-            $d = str_split(substr($b, floor($l / 2)));
-            $sum1 = 0;
-            $sum2 = 0;
-            for ($s = 0; $s < count($c); $s++) {
-                $sum1 += $c[$s];
-            }
-            for ($s = 0; $s < count($d); $s++) {
-                $sum2 += $d[$s];
-            }
-            if ($sum1 == $sum2) {
-                $sovpadd = 0;
-                for ($ii = 0, $jj = (count($d) - 1); $ii < count($c); $ii++, $jj--) {
-                    if ($c[$ii] == $d[$jj]) {
-                        $sovpadd++;
-                    } else break;
-                }
-                if ($sovpadd == count($c)) {
-                    array_push($arr3, $arr[$i] * $arr[$j]);
-                    $res = $arr[$i] * $arr[$j];
-                    echo ($iii++).") $arr[$i] * $arr[$j] ==  $res <br>";
-                }
-            }
+//            $c = str_split(substr($b, 0, floor($l / 2)));
+//            $d = str_split(substr($b, floor($l / 2)));
+//            $sum1 = 0;
+//            $sum2 = 0;
+//            for ($s = 0; $s < count($c); $s++) {
+//                $sum1 += $c[$s];
+//            }
+//            for ($s = 0; $s < count($d); $s++) {
+//                $sum2 += $d[$s];
+//            }
+//            if ($sum1 == $sum2) {
+//                $sovpadd = 0;
+//                for ($ii = 0, $jj = (count($d) - 1); $ii < count($c); $ii++, $jj--) {
+//                    if ($c[$ii] == $d[$jj]) {
+//                        $sovpadd++;
+//                    } else break;
+//                }
+//                if ($sovpadd == count($c)) {
+//                    array_push($arr3, $arr[$i] * $arr[$j]);
+//                    $res = $arr[$i] * $arr[$j];
+//                    echo ($iii++).") $arr[$i] * $arr[$j] ==  $res <br>";
+//                }
+//            }
         }
     }
 }
