@@ -2,7 +2,6 @@
 
 
 
-session_start();
 
 //$user_pass =  password_hash(123, 1);
 //echo $user_pass;
@@ -14,15 +13,17 @@ session_start();
 //}
 
 include '../config/config.php';
+session_start();
 include '../include/functions.php';
-if ($_GET['action'] == 'logout'){
+
+if (isset($_GET['action']) && $_GET['action'] == 'logout'){
     $_SESSION = array();
 }
-if ($_SESSION['is_auth'] && $_SESSION['is_admin'] == 1){
+if ( isset($_GET['is_auth']) && $_SESSION['is_auth'] && $_SESSION['is_admin'] == 1){
     include  "template/layout.php";
 }
 else{
-    if ($_GET['action']== 'registration'){
+    if (isset($_GET['action']) && $_GET['action']== 'registration'){
 
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
