@@ -17,6 +17,7 @@ $pages = getListInAdmin($connection, 'pages');
             <thead>
             <tr>
                 <th scope="col">id</th>
+                <th scope="col">Cover</th>
                 <th scope="col">Name</th>
                 <th scope="col">Active</th>
                 <th scope="col">Action</th>
@@ -26,6 +27,7 @@ $pages = getListInAdmin($connection, 'pages');
             <?php foreach ($pages as $page):?>
             <tr>
                 <td><?=$page['id']?></td>
+                <td><img  style="max-width: 50px;" src="../upload/pages/<?=$page['frontImg']?>"></td>
                 <td><?=$page['name']?></td>
                 <td><?=$page['active']?></td>
                 <td><a href="?action=edit_page&id=<?=$page['id']?>" class="btn btn-primary">Edit</a><a href="<?="?action=page_engine&action_type=delete&delete_page_id=".$page['id']?>" class="btn btn-danger" style="margin-left: 15px">Delete</a></td>

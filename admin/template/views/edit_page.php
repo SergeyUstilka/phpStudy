@@ -25,6 +25,11 @@ $page = getData($connection,$_GET['id'], 'pages');
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Содержание</label></div>
                             <div class="col-12 col-md-9"><textarea name="pageContent" id="textarea-input" rows="9" placeholder="Content..." class="form-control"><?=$page['content']?></textarea></div>
                         </div>
+                        <img src="../upload/pages/<?=$page['frontImg']?>" style="max-width: 100px;">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Изображение записи</label></div>
+                            <div class="col-12 col-md-9"><input type="file" id="text-input" name="image" ></div>
+                        </div>
                         <input type="text" name="updateId" value="<?=$_GET['id']?>" style="display: none">
                         <div class="row form-group">
                             <div class="col col-md-12">

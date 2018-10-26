@@ -7,7 +7,7 @@
  */
 
 if(isset($_GET['pag'])){
-    $pages = getList($connection,3,$_GET['pag'] );
+    $pages = getList($connection,3,(int)$_GET['pag'] );
 }else{
     $pages = getList($connection);
 }
@@ -25,8 +25,11 @@ $countPages = getCountPages($connection, 'pages');
                             if($page['active']):
                                 ?>
 
-                                <div class="content-grid-info">
-                                    <img src="images/post1.jpg" alt=""/>
+                                <div class="content-grid-info" >
+                                    <div style="max-height: 300px; overflow: hidden">
+                                        <img src="/upload/pages/<?=$page['frontImg']?>" alt="" style="width: 100%;"/>
+
+                                    </div>
                                     <div class="post-info">
                                         <h4><a href="/single?id=<?= $page['id'] ?>"><?= $page['name'] ?></a> July 30,
                                             2014 / 27 Comments</h4>

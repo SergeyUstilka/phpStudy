@@ -37,7 +37,7 @@ $users = getListInAdmin($connection, 'users');
                             <tr>
                                 <td class="avatar">
                                     <div class="round-img">
-                                        <img class="rounded-circle" src="images/avatar/<?=$user['user_type'];?>.jpg" alt="">
+                                        <img class="rounded-circle" src="../upload/users/<?=$user['user_avatar']?>" alt="">
                                     </div>
                                 </td>
                                 <td><?=$user['id']?></td>

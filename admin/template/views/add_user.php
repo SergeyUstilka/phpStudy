@@ -33,6 +33,10 @@
                             <div class="col-12 col-md-9"><textarea name="biography" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea></div>
                         </div>
                         <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Аватар</label></div>
+                            <div class="col-12 col-md-9"><input type="file" id="text-input" name="image"></div>
+                        </div>
+                        <div class="row form-group">
                             <div class="col col-md-12">
                                 <div class="form-check">
                                     <div class="checkbox">

@@ -35,6 +35,12 @@ $users = getData($connection,$_GET['id'], 'users');
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">О себе</label></div>
                             <div class="col-12 col-md-9"><textarea name="biography" id="textarea-input" rows="9" placeholder="Content..." class="form-control"><?=$users['biography']?></textarea></div>
                         </div>
+                        <img src="../upload/pages/<?=$users['user_avatar']?>" style="max-width: 100px;">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Аватар</label></div>
+                            <div class="col-12 col-md-9"><input type="file" id="text-input" name="image" ></div>
+                        </div>
+
                         <input type="text" name="updateId" value="<?=$_GET['id']?>" style="display: none">
 
                         <div class="row form-group">
