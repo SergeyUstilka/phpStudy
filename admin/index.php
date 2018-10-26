@@ -1,19 +1,6 @@
 <?php
 
-
-
-
-//$user_pass =  password_hash(123, 1);
-//echo $user_pass;
-//echo "<br>";
-//if (password_verify(123, $user_pass)){
-//    echo 'правильный пароль';
-//}else{
-//    echo 'неправильный пароль';
-//}
-
 include '../config/config.php';
-session_start();
 include '../include/functions.php';
 
 if (isset($_GET['action']) && $_GET['action'] == 'logout'){
