@@ -28,10 +28,6 @@ $users = getData($connection,$_GET['id'], 'users');
                             <div class="col-12 col-md-9"><input type="text" value="<?=$users['email']?>" id="text-input" name="email" placeholder="Email" class="form-control"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Пароль</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" value="<?=$users['pass']?>" name="pass" placeholder="Пароль" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
                             <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">О себе</label></div>
                             <div class="col-12 col-md-9"><textarea name="biography" id="textarea-input" rows="9" placeholder="Content..." class="form-control"><?=$users['biography']?></textarea></div>
                         </div>

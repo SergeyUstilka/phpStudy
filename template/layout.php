@@ -59,7 +59,7 @@
                 <?php else:?>
                     <li><a href="/admin/?action=logout">LOGOUT</a></li>
                 <?php endif;?>
-                <?php if(isset($_SESSION['is_admin'])):?>
+                <?php if(isset($_SESSION['is_admin']) && $_SESSION['is_admin']== 1):?>
                 <li><a href="/admin">Admin Panel</a></li>
                 <?php endif; ?>
                 <div class="clearfix"> </div>

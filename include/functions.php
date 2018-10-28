@@ -105,45 +105,70 @@ function login($connection, $mail){
     $sql = "select * from users where email = '$mail'";
     $res = mysqli_query($connection, $sql);
     return  mysqli_fetch_assoc($res);
+//    if($stmt = mysqli_prepare($connection, "SELECT  id FROM `users` WHERE `email`=?")){
+//        mysqli_stmt_bind_param($stmt, "s", $mail);
+//        mysqli_stmt_execute($stmt);
+//        mysqli_stmt_bind_result($stmt, $res);
+//        mysqli_stmt_fetch($stmt);
+//    }
+//    $sql = "SELECT * FROM `users` WHERE `id` = ";
+//    $res1 = mysqli_query($connection, $sql);
+//    var_dump($res1);
+//    return  mysqli_fetch_assoc($res);
 }
 
 
 // Functions for work with users
 
-function addUser($connection, $addData,$files){
+function addUser($connection, $addData,$files = NULL){
     if(strlen($files['image']['name'])> 0){
         move_uploaded_file($files['image']['tmp_name'], '../upload/users/'.$files['image']['name']);
     }
     else{
         $files['image']['name'] = 'no-img.png';
     }
+    if($addData['user_type'] == NULL){
+        $addData['user_type'] =0;
+    }
+    if ($addData['biography'] == NULL){
+        $addData['biography'] = 'Данные о пользователи отсутствуют';
+    }
+    $mailsql = "SELECT email FROM `users`";
+    $mailres = mysqli_query($connection, $mailsql);
+    $allUsersMails = mysqli_fetch_all($mailres);
+    foreach ($allUsersMails as $value){
+        if($value[0] == $addData['email']){
+            $addData['allert'] = 'Пользователь с таким email  уже существует';
+            return $addData;
+        }
+    }
     $sql = "INSERT INTO `users`(`name`, `email`, `pass`, `biography`, `user_type`,`user_avatar`) VALUES (?,?,?,?,?,?);";
     if(!$stmt = mysqli_prepare($connection,$sql)){
         return false;
     }
-    mysqli_stmt_bind_param($stmt, "ssssis", $addData['name'],$addData['email'], password_hash($addData['pass'], 1),$addData['biography'], $addData['user_type'],$files['image']['name'] );
+    $pass = md5($addData['password']);
+    mysqli_stmt_bind_param($stmt, "ssssis", $addData['name'],$addData['email'], $pass,$addData['biography'], $addData['user_type'],$files['image']['name'] );
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    $addData['success'] = 'Вы успешно зарегистрированы <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../"> ';
     return $addData;
 }
 
 function editUser($connection, $addData,$files){
     if(strlen($files['image']['name'])>0){
         move_uploaded_file($files['image']['tmp_name'], '../upload/users/'.$files['image']['name']);
-        $sql = "UPDATE users SET `name` = ?, `email` = ?, `pass` = ?, `user_type` = ?, `biography` = ?, `user_avatar` = ?  WHERE `id` =?;";
+        $sql = "UPDATE users SET `name` = ?, `email` = ?, `user_type` = ?, `biography` = ?, `user_avatar` = ?  WHERE `id` =?;";
         if(!$stmt = mysqli_prepare($connection,$sql)){
             return false;
         }
-        $password = password_hash($addData['pass'], 1);
-        mysqli_stmt_bind_param($stmt, "ssssisi", $addData['name'],$addData['email'], $password,$addData['biography'], $addData['user_type'],$files['image']['name'],$addData['updateId']);
+        mysqli_stmt_bind_param($stmt, "sssisi", $addData['name'],$addData['email'],$addData['biography'], $addData['user_type'],$files['image']['name'],$addData['updateId']);
 
     }else{
-        $sql = "UPDATE users SET `name` = ?, `email` = ?, `pass` = ?, `user_type` = ?, `biography` = ?  WHERE `id` =?;";
+        $sql = "UPDATE users SET `name` = ?, `email` = ?,  `user_type` = ?, `biography` = ?  WHERE `id` =?;";
         if(!$stmt = mysqli_prepare($connection,$sql)){
             return false;
         }
-        $password = password_hash($addData['pass'], 1);
-        mysqli_stmt_bind_param($stmt, "ssssii", $addData['name'],$addData['email'], $password,$addData['biography'], $addData['user_type'],$addData['updateId']);
+        mysqli_stmt_bind_param($stmt, "sssii", $addData['name'],$addData['email'],$addData['biography'], $addData['user_type'],$addData['updateId']);
 
     }
     mysqli_stmt_execute($stmt);
